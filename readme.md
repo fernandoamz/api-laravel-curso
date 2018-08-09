@@ -75,5 +75,53 @@
  ¡Congratulation your laravel project is up to heroku!
  
  if you have dudes you can check this video -> https://www.youtube.com/watch?v=47B5tq9ZdW8&t=4s
+  
+  **THIRD STEP: Creating APIRestful**
+  
+  1.- create a database with https://www.freemysqlhosting.net/ and you need copy host access and got to .ENV file project add next lines: 
+  
+    DB_CONNECTION=mysql
+    
+    DB_HOST=sql3.freemysqlhosting.net
+    
+    DB_PORT=3306
+    
+    DB_DATABASE=sql3249989
+    
+    DB_USERNAME=sql3249989
+    
+    DB_PASSWORD=nDQkGrnvFj
+Note: **Obviusly with your information created in freemysqlhosting** 
+
+2.- Follow the next tutorial to describe how do an api, to fast way, **IMPORTANT: follow the tutorial since STEP 2**
+https://itsolutionstuff.com/post/how-to-create-rest-api-in-laravel-5-example.html
    
-   
+when your finish you need run: 
+    git add . 
+    
+    git commit -m "adding routes API"
+    
+    git status
+    
+    git push heroku master
+    
+ 3.- Adding CORS: 
+ 
+ You can install the package via Composer:
+
+composer require spatie/laravel-cors
+
+The package will automatically register its service provider.
+
+The provided Spatie\Cors\Cors middleware must be registered in the global middleware group.
+
+// app/Http/Kernel.php
+
+protected $middleware = [
+    ...
+    \Spatie\Cors\Cors::class
+];
+
+php artisan vendor:publish --provider="Spatie\Cors\CorsServiceProvider" --tag="config"
+
+if you have dudes you can watch: https://github.com/spatie/laravel-cors#laravel
